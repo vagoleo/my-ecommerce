@@ -1,0 +1,20 @@
+.navbar .container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar img {
+    max-width: 120px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 0 0 40px;
+}
