@@ -1,20 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 
+//Components
 import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
 
       <NavBar />
+      <ItemListContainer greeting='Bienvenido!' />
 
-      <header className="App-header">
-        <h1>
-          Hola mundo!
-        </h1>
-        <p> Coderhouse - Comision 19740</p>
-      </header>
     </div>
   );
 }
