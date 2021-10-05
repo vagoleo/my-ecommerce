@@ -1,0 +1,13 @@
+.counter-wrapper {
+    max-width: 400px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.counter {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 40px 0 ;
+}
