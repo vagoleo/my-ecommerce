@@ -1,14 +1,17 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount';
 import './ItemListContainer.css';
+
+// Components
+import ItemCount from '../ItemCount/ItemCount';
+import ItemList from '../ItemList/ItemList';
 
 
 const ItemListContainer = (props) => {
-
+    
     return (
-        <div class='item-list-container' style={{marginTop: '20vh', textAlign: 'center'}}>
+        <div className='item-list-container' style={{marginTop: '20vh', textAlign: 'center'}}>
             <h1> {props.greeting} </h1>
-            <ItemCount stock={10} initial={1} />
+            <ItemList />
         </div>
     )
 }

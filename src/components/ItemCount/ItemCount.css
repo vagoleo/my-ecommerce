@@ -1,13 +1,24 @@
 .counter-wrapper {
-    max-width: 400px;
+    width: 100%;
+    max-width: 200px;
     text-align: center;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 .counter {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-around;
-    margin: 0 0 40px 0 ;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.counter-num {
+    margin: 0;
+}
+
+.counter-add button.button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
 }

@@ -1,0 +1,15 @@
+
+.item-list .ui.card > .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.item-list .ui.card > .image > img {
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+}
