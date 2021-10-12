@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import './ItemList.css'
 
 import Item from '../Item/Item'
@@ -19,6 +20,7 @@ const ItemList = () => {
             {items.map(item => {
                 return(
                     <Item
+                        key={item.id}
                         image={item.image}
                         title={item.title}
                         category={item.category}

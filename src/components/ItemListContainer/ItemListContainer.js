@@ -2,7 +2,6 @@ import React from 'react'
 import './ItemListContainer.css';
 
 // Components
-import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
 
 
