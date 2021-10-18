@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './ItemList.css'
 
 import Item from '../Item/Item'
+import { Link } from 'react-router-dom';
 
 
 const ItemList = () => {
@@ -19,15 +20,18 @@ const ItemList = () => {
         <div className='item-list'>
             {items.map(item => {
                 return(
-                    <Item
-                        key={item.id}
-                        image={item.image}
-                        title={item.title}
-                        category={item.category}
-                        rating={item.rating.rate}
-                        price={item.price}
-                        stock={item.id}
-                    />
+                    <div key={item.id}>
+                        <Link to={`/item/${item.id}`}>
+                            <Item
+                                image={item.image}
+                                title={item.title}
+                                category={item.category}
+                                rating={item.rating.rate}
+                                price={item.price}
+                                stock={item.id}
+                            />
+                        </Link>
+                    </div>
                 );
             })}
         </div>

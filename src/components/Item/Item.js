@@ -8,7 +8,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const Item = (props) => {
     return (
-        <Link to='/item/:id'>
+        
             <Card>
                 <Image src={props.image} wrapped ui={false} />
                 <Card.Content>
@@ -27,7 +27,6 @@ const Item = (props) => {
                     <ItemCount itemName={props.title} stock={props.stock} initial={1}/>
                 </Card.Content>
             </Card>
-        </Link>
     )
 }
 
