@@ -1,7 +1,6 @@
 import React from 'react'
 import './Item.css'
 import {Card, Icon, Image} from 'semantic-ui-react'
-import { Link } from "react-router-dom";
 
 import '../ItemCount/ItemCount'
 import ItemCount from '../ItemCount/ItemCount'

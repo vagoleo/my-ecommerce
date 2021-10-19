@@ -6,15 +6,17 @@ import Item from '../Item/Item'
 import { Link } from 'react-router-dom';
 
 
-const ItemList = () => {
+const ItemList = (props) => {
+
+    const url = props.category ? `products/category/${props.category}` : `products?limit=20`;
 
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=10')
+        fetch(`https://fakestoreapi.com/${url}`)
             .then(res=>res.json())
             .then(json=>setItems(json))
-    }, []);
+    }, [url]);
 
     return (
         <div className='item-list'>

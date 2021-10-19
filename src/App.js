@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 // Views
 import Home from './views/Home'
 import ItemPage from './views/ItemPage'
+import CategoryPage from './views/CategoryPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/item/:id" component={ItemPage} />
+          <Route path="/category/:id" component={CategoryPage} />
         </Switch>
       </div>
     </Router>
