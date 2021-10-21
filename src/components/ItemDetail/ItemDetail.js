@@ -11,10 +11,12 @@ const ItemDetail = ({id}) => {
     const [didAdd, setDidAdd] = useState(false);
 
     const onAdd = (counter) => {
-        setItemsAdded(counter);
-        setDidAdd(true);
-        console.log('did add:', didAdd);
-        console.log('items added:', itemsAdded);
+        if(counter !== 0){
+            setItemsAdded(counter);
+            setDidAdd(true);
+            console.log('did add:', didAdd);
+            console.log('items added:', itemsAdded);
+        }
     }
 
     useEffect(() => {
