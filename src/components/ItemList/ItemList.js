@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './ItemList.css'
 
 import Item from '../Item/Item'
-import { Link } from 'react-router-dom';
+
 
 
 const ItemList = (props) => {
@@ -23,7 +23,7 @@ const ItemList = (props) => {
             {items.map(item => {
                 return(
                     <div key={item.id}>
-                        <Link to={`/item/${item.id}`}>
+                        
                             <Item
                                 image={item.image}
                                 title={item.title}
@@ -31,8 +31,9 @@ const ItemList = (props) => {
                                 rating={item.rating.rate}
                                 price={item.price}
                                 stock={item.id}
+                                id={item.id}
                             />
-                        </Link>
+                        
                     </div>
                 );
             })}

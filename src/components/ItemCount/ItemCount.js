@@ -3,19 +3,21 @@ import { Button, Icon } from 'semantic-ui-react'
 import './ItemCount.css'
 
 
-const ItemCount = ({stock, initial, itemName}) => {
+const ItemCount = ({stock, initial, itemName, onAdd}) => {
 
     const [counter, setCounter] = useState(initial);
 
     const increment = () => {
         if(counter < stock) setCounter(counter + 1);
+        console.log(counter);
     }
 
     const decrement = () => {
         if(counter > 0) setCounter(counter - 1);
+        console.log(counter);
     }
 
-    const onAdd = () => {
+    const handleCart = () => {
         if(counter !== 0) alert(`Se ha agregado ${counter} ${itemName} al carrito.`);
     }
 
@@ -33,9 +35,7 @@ const ItemCount = ({stock, initial, itemName}) => {
                 </Button> 
             </div>
             <div className='counter-add'>
-                <Button icon onClick={onAdd}>
-                    Agregar al carrito <Icon name='add to cart' />
-                </Button>
+                <Button icon onClick={() => onAdd(counter)}> Agregar al carrito <Icon name='add to cart' /> </Button>
             </div>
         </div>
     )

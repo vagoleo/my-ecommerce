@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Home from './views/Home'
 import ItemPage from './views/ItemPage'
 import CategoryPage from './views/CategoryPage';
+import Cart from './views/Cart';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/item/:id" component={ItemPage} />
           <Route path="/category/:id" component={CategoryPage} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </div>
     </Router>

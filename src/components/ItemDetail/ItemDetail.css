@@ -1,12 +1,18 @@
 .item-detail {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
-    text-align: center;
     margin-top: 100px;
     padding: 70px 0;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.item-detail .col {
+    flex-basis: 50%;
 }
 
 .item-detail img {
     width: 80%;
-    margin: 50px 0;
+    margin: 0 50px 0 0;
 }
