@@ -7,6 +7,13 @@ import '../ItemCount/ItemCount'
 import ItemCount from '../ItemCount/ItemCount'
 
 const Item = (props) => {
+
+
+    const handleCart = (counter, itemName) => {
+        if(counter !== 0) alert(`Se ha agregado ${counter} ${itemName} al carrito.`);
+    }
+
+
     return (
         
             <Card>
@@ -27,9 +34,11 @@ const Item = (props) => {
                 <Card.Content>
                     <strong>$ {props.price} </strong>
                 </Card.Content>
+                {props.showCounter ? 
                 <Card.Content extra>
-                    <ItemCount itemName={props.title} stock={props.stock} initial={0}/>
+                    <ItemCount itemName={props.title} stock={props.stock} initial={0} onAdd={() => handleCart(props.id, props.title)}/>
                 </Card.Content>
+                : null }
             </Card>
     )
 }

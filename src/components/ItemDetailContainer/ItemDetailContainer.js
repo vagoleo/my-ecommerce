@@ -1,11 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
+import { Loader } from 'semantic-ui-react'
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = ({match}) => {
+
+    let id = match.params.id;
+
+    const [item, setItem] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(res=>res.json())
+            .then(json=> { 
+                setItem(json);
+                setIsLoading(false);
+            })
+    }, [id]);
+
     return (
-        <div>
-            <h1> {props.title} </h1>
-        </div>
+        <>
+            { isLoading ?
+                <Loader active />
+            :
+                <ItemDetail item={item} />
+            }
+            
+        </>
     )
 }
 

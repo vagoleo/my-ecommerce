@@ -1,29 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import { Button } from 'semantic-ui-react'
 import './ItemDetail.css'
 import { Link } from 'react-router-dom';
 
-const ItemDetail = ({id}) => {
-
-    const [item, setItem] = useState([]);
-    const [itemsAdded, setItemsAdded] = useState(0);
+const ItemDetail = ({item}) => {
+    
+    const [itemsAdded, setItemsAdded] = useState();
     const [didAdd, setDidAdd] = useState(false);
 
-    const onAdd = (counter) => {
-        if(counter !== 0){
-            setItemsAdded(counter);
-            setDidAdd(true);
-            console.log('did add:', didAdd);
-            console.log('items added:', itemsAdded);
-        }
+    const onAdd = (quantity) => {
+        setItemsAdded(quantity);
+        setDidAdd(true);
     }
 
-    useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then(res=>res.json())
-            .then(json=> { setItem(json)})
-    }, [id]);
+    
 
     return (
         <div className='item-detail'>
@@ -34,12 +25,12 @@ const ItemDetail = ({id}) => {
                 <h2>{item.title}</h2>
                 <p className='item-desc'> {item.description}</p>
                 <h3>$ {item.price}</h3>
-                { itemsAdded ? 
+                { didAdd ? 
                     <Link to='/cart'>
                         <Button>Finalizar Compra</Button>
                     </Link>
                     :
-                    <ItemCount itemName={item.title} stock={item.id} initial={0} onAdd={onAdd} />
+                    <ItemCount itemName={item.title} stock={item.id} initial={0} onAdd={(quantity) => onAdd(quantity)} />
                 }
                 
             </div>
