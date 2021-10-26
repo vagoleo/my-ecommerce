@@ -1,8 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 import { Button } from 'semantic-ui-react'
-import './ItemDetail.css'
 import { Link } from 'react-router-dom';
+
+// Context
+import { CartContext } from '../../contexts/CartContext';
+
 
 const ItemDetail = ({item}) => {
     
@@ -13,6 +17,8 @@ const ItemDetail = ({item}) => {
         setItemsAdded(quantity);
         setDidAdd(true);
     }
+
+    const [items, setItems, addItem, removeItem, clearCart] = useContext(CartContext);
 
     
 
@@ -27,13 +33,19 @@ const ItemDetail = ({item}) => {
                 <h3>$ {item.price}</h3>
                 { didAdd ? 
                     <Link to='/cart'>
-                        <Button>Finalizar Compra</Button>
+                        <Button onClick={() => addItem(item, itemsAdded)}>Finalizar Compra</Button>
                     </Link>
                     :
                     <ItemCount itemName={item.title} stock={item.id} initial={0} onAdd={(quantity) => onAdd(quantity)} />
                 }
                 
             </div>
+
+            {/*<div style={{flexBasis: '100%'}}>
+                <button onClick={() => addItem(item, itemsAdded)}>ADD</button>
+                <button onClick={() => removeItem(item.id)}>REMOVE</button>
+                <button onClick={clearCart}>CLEAR</button>
+            </div>*/}
             
         </div>
     )
