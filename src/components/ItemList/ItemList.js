@@ -40,7 +40,7 @@ const ItemList = (props) => {
                                 category={item.category}
                                 rating={item.rating.rate}
                                 price={item.price}
-                                stock={item.id}
+                                stock={10}
                                 id={item.id}
                                 showCounter={false}
                             />

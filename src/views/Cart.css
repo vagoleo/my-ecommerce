@@ -1,0 +1,11 @@
+.cart-wrapper .items {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.items.ui .item.item-horizontal {
+    text-align: left;
+    margin: 50px 0!important;
+    border-bottom: 1px solid silver;
+    padding-bottom: 30px; 
+}

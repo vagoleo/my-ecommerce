@@ -1,0 +1,21 @@
+.cart-widget {
+    position: relative;
+}
+
+.cart-widget .quantity {
+    box-sizing: content-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 2px 0 0;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    font-size: 10px;
+    font-weight: bold;
+}
