@@ -1,6 +1,6 @@
 import React from 'react'
 import './Item.css'
-import {Card, Icon, Image} from 'semantic-ui-react'
+import {Card, Image} from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 import '../ItemCount/ItemCount'
@@ -26,9 +26,7 @@ const Item = (props) => {
                     <Card.Meta>
                         <span className='date'>{props.category}</span>
                     </Card.Meta>
-                    <Card.Description> 
-                        <Icon name='star' /> {props.rating} 
-                    </Card.Description>
+
                 </Card.Content>
                 
                 <Card.Content>

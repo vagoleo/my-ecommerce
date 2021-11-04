@@ -6,9 +6,11 @@ const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
+        /*fetch('https://fakestoreapi.com/products/categories')
             .then(res=>res.json())
-            .then(json=>setCategories(json))
+            .then(json=>setCategories(json))*/
+
+        setCategories(['men', 'women'])
     }, []);
 
     return (

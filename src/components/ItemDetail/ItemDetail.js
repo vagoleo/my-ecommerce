@@ -18,14 +18,14 @@ const ItemDetail = ({item}) => {
         setDidAdd(true);
     }
 
-    const [items, setItems, addItem, removeItem, clearCart] = useContext(CartContext);
+    const [addItem] = useContext(CartContext);
 
     
 
     return (
         <div className='item-detail'>
             <div className='col col-left'>
-                <img src={item.image} alt={item.title} />
+                <img src={item.img} alt={item.title} />
             </div>
             <div className='col col-right'>
                 <h2>{item.title}</h2>

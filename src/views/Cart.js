@@ -10,7 +10,7 @@ import { CartContext } from '../contexts/CartContext';
 
 const Cart = () => {
 
-    const [items, removeItem, clearCart] = useContext(CartContext);
+    const [items, removeItem] = useContext(CartContext);
 
      const getTotalPrice = () => {
         let total = 0;
