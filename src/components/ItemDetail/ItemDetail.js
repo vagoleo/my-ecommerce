@@ -36,16 +36,12 @@ const ItemDetail = ({item}) => {
                         <Button onClick={() => addItem(item, itemsAdded)}>Finalizar Compra</Button>
                     </Link>
                     :
-                    <ItemCount itemName={item.title} stock={item.id} initial={0} onAdd={(quantity) => onAdd(quantity)} />
+                    <ItemCount itemName={item.title} stock={item.stock} initial={0} onAdd={(quantity) => onAdd(quantity)} />
                 }
                 
             </div>
 
-            {/*<div style={{flexBasis: '100%'}}>
-                <button onClick={() => addItem(item, itemsAdded)}>ADD</button>
-                <button onClick={() => removeItem(item.id)}>REMOVE</button>
-                <button onClick={clearCart}>CLEAR</button>
-            </div>*/}
+          
             
         </div>
     )

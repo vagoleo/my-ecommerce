@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase';
+
 import './ItemDetailContainer.css'
 import { Loader } from 'semantic-ui-react'
 
@@ -11,12 +14,24 @@ const ItemDetailContainer = ({match}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
+        /*fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res=>res.json())
             .then(json=> { 
                 setItem(json);
                 setIsLoading(false);
-            })
+            })*/
+
+            const requestData = async () => {
+                const data = await getDocs( collection(db, 'products') );
+                const auxItem = data.docs.find(x => x.id === id).data();
+                
+                setItem(auxItem);
+                setIsLoading(false);
+                //console.log(items);
+            }
+    
+            requestData();
+
     }, [id]);
 
     return (
