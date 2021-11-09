@@ -9,6 +9,7 @@ import Home from './views/Home'
 import CategoryPage from './views/CategoryPage';
 import Cart from './views/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Checkout from './views/Checkout';
 
 //Contexts
 import { CartProvider } from './contexts/CartContext';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/item/:id" component={ItemDetailContainer} />
             <Route path="/category/:id" component={CategoryPage} />
             <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={Checkout} />
           </Switch>
         </div>
         </CartProvider>

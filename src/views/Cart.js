@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { Button, Icon, Item } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import './Cart.css'
@@ -26,9 +26,9 @@ const Cart = () => {
             <Item.Group>
                 {
                     items.length > 0 ? 
-                    items.map(item => {
+                    items.map((item, i) => {
                         return(
-                                <Item  className='item-horizontal' key={item.id}>
+                                <Item  className='item-horizontal' key={i}>
                                     <Item.Image size='tiny' src={item.image} />
 
                                     <Item.Content>
@@ -51,6 +51,9 @@ const Cart = () => {
             { items.length > 0 ?
                 <div className='total-price'>
                     Total: <strong>$ {getTotalPrice()}</strong>
+                    <Link to='/checkout'>
+                        <Button > Terminar Compra </Button>
+                    </Link>
                 </div>
             : 
                 <div>

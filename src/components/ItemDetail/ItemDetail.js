@@ -18,7 +18,7 @@ const ItemDetail = ({item}) => {
         setDidAdd(true);
     }
 
-    const [addItem] = useContext(CartContext);
+    const [items, setItems, addItem, removeItem, clearCart] = useContext(CartContext);
 
     
 
