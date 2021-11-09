@@ -39,7 +39,8 @@ const Checkout = () => {
                 name: userName,
                 email: userEmail,
                 phone: userPhone
-            }
+            },
+            items: items,
         });
 
         setPurchaseID(docRef.id)
