@@ -12,6 +12,8 @@ const Cart = () => {
 
     const [items, removeItem] = useContext(CartContext);
 
+    console.log(items)
+
      const getTotalPrice = () => {
         let total = 0;
         items.forEach(item => {
@@ -26,10 +28,10 @@ const Cart = () => {
             <Item.Group>
                 {
                     items.length > 0 ? 
-                    items.map((item, i) => {
+                    items.map((item, idx) => {
                         return(
-                                <Item  className='item-horizontal' key={i}>
-                                    <Item.Image size='tiny' src={item.image} />
+                                <Item  className='item-horizontal' key={idx}>
+                                    <Item.Image size='tiny' src={item.img} />
 
                                     <Item.Content>
                                         <Item.Header>{item.title}</Item.Header>

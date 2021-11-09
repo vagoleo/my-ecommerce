@@ -17,7 +17,6 @@ const Item = (props) => {
     return (
         
             <Card>
-                
                 <Image src={props.image} wrapped ui={false} />
                 <Card.Content>
                     <Link to={`/item/${props.id}`}>

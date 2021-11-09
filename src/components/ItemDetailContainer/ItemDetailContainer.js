@@ -8,7 +8,7 @@ import { Loader } from 'semantic-ui-react'
 
 const ItemDetailContainer = ({match}) => {
 
-    let id = match.params.id;
+    let itemID = match.params.id;
 
     const [item, setItem] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +23,7 @@ const ItemDetailContainer = ({match}) => {
 
             const requestData = async () => {
                 const data = await getDocs( collection(db, 'products') );
-                const auxItem = data.docs.find(x => x.id === id).data();
+                const auxItem = {...data.docs.find(x => x.id === itemID).data(), id: itemID };
                 
                 setItem(auxItem);
                 setIsLoading(false);
@@ -32,7 +32,7 @@ const ItemDetailContainer = ({match}) => {
     
             requestData();
 
-    }, [id]);
+    }, [itemID]);
 
     return (
         <>

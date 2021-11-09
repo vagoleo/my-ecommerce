@@ -20,8 +20,6 @@ const ItemDetail = ({item}) => {
 
     const [items, setItems, addItem, removeItem, clearCart] = useContext(CartContext);
 
-    
-
     return (
         <div className='item-detail'>
             <div className='col col-left'>

@@ -40,7 +40,15 @@ const Checkout = () => {
                 email: userEmail,
                 phone: userPhone
             },
-            items: items,
+            items: items.map(i => {
+                return {
+                    title: i.title,
+                    id: i.id,
+                    price: i.price,
+                    quantity: i.quantity
+                }
+            }),
+            total: getTotalPrice(),
         });
 
         setPurchaseID(docRef.id)
@@ -75,7 +83,7 @@ const Checkout = () => {
                 { items.map((item, i) => {
                         return(
                                 <Item  className='item-horizontal' key={i}>
-                                    <Item.Image size='tiny' src={item.image} />
+                                    <Item.Image size='tiny' src={item.img} />
 
                                     <Item.Content>
                                         <Item.Header>{item.title}</Item.Header>
