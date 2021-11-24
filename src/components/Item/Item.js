@@ -33,7 +33,7 @@ const Item = (props) => {
                 </Card.Content>
                 {props.showCounter ? 
                 <Card.Content extra>
-                    <ItemCount itemName={props.title} stock={props.stock} initial={0} onAdd={() => handleCart(props.id, props.title)}/>
+                    <ItemCount itemName={props.title} stock={props.stock} initial={1} onAdd={() => handleCart(props.id, props.title)}/>
                 </Card.Content>
                 : null }
             </Card>

@@ -1,5 +1,7 @@
 .item-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2em;
+    margin: 50px auto; 
 }

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
-import { Input, Button, Icon, Item } from 'semantic-ui-react'
+import { Input, Button, Item, Message, Form } from 'semantic-ui-react'
 
 //Context
 import { CartContext } from '../contexts/CartContext';
@@ -10,7 +10,8 @@ import { CartContext } from '../contexts/CartContext';
 
 const Checkout = () => {
 
-    const [items, removeItem] = useContext(CartContext);
+    const [items, , , , clearCart ] = useContext(CartContext);
+
     const getTotalPrice = () => {
         let total = 0;
         items.forEach(item => {
@@ -28,6 +29,13 @@ const Checkout = () => {
     const userNameChange = (e) =>{ setUserName(e.target.value) }
     const userPhoneChange = (e) =>{ setUserPhone(e.target.value) }
     const userEmailChange = (e) =>{ setUserEmail(e.target.value) }
+
+    const checkInputs = () => {
+        if( userName !== '' && 
+            userEmail !== '' &&
+            userPhone !== ''
+        ) { return true; } else { return false; }
+    }
 
 
 
@@ -53,11 +61,8 @@ const Checkout = () => {
 
         setPurchaseID(docRef.id)
         setDidBuy(true);
-
-        console.log('name:', userName);
-        console.log('phone:', userPhone);
-        console.log('email:', userEmail);
-        
+        clearCart();
+             
     }
 
     
@@ -65,18 +70,29 @@ const Checkout = () => {
      
 
     return (
-        <> { 
+        <div className='container' style={{marginTop: '50px'}}> 
+        { 
             
             !didBuy ? 
 
         <div className='checkout-wrapper' style={{display: 'flex'}}>
-            <div className='col' style={{flexBasis: '50%'}}>
-                <form>
+            <div className='col' style={{flexBasis: '50%', paddingRight: '30px'}}>
+                <Message
+                    attached
+                    header='Datos del comprador'
+                    content='Finaliza tu compra rellenando estos datos'
+                />
+                <Form className='attached fluid segment'>
                     <Input focus placeholder='Nombre completo' value={userName} onChange={userNameChange} /><br></br><br></br>
                     <Input focus placeholder='Email' value={userEmail} onChange={userEmailChange} /><br></br><br></br>
                     <Input focus placeholder='Telefono' value={userPhone} onChange={userPhoneChange} /><br></br><br></br>
-                    <Button onClick={handleSubmit} > Comprar </Button>
-                </form>
+                    { checkInputs() ? 
+                        <Button color='blue' onClick={handleSubmit} > Comprar </Button>
+                        :
+                        <Button disabled onClick={handleSubmit} > Comprar </Button>
+                    }
+                    
+                </Form>
             </div>
             <div className='col' style={{flexBasis: '50%'}}>
             <Item.Group>
@@ -93,7 +109,7 @@ const Checkout = () => {
                                         </Item.Meta>
                                         <Item.Description><strong>$ {parseFloat(item.price) * parseInt(item.quantity)}</strong></Item.Description>
                                         <br></br>
-                                        <Button icon onClick={() => removeItem(item.id)}> Eliminar <Icon name='trash' /> </Button>
+                                        
                                     </Item.Content>
                                 </Item>
                         )
@@ -106,10 +122,18 @@ const Checkout = () => {
 
         :
 
-        <div>id compra: {purchaseID}</div>
+        <div style={{marginTop: '50px'}}>
+            <Message
+                success
+                size='huge'
+                header='Su compra fue realizada con exito!'
+                content={`ID: ${purchaseID}`}
+            />
+        
+        </div>
         
         }
-        </>
+        </div>
     )
 }
 

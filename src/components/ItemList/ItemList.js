@@ -45,32 +45,34 @@ const ItemList = (props) => {
     }, [props.category]);
 
     return (
-        <div className='item-list'>
+        <div className='container'>
+            <div className='item-list'>
 
-            { isLoading ? 
+                { isLoading ? 
 
-             <Loader active content='Cargando productos...' />
-            
-            :  
-            
-            items.map(item => {
-                return(
-                    <div key={item.id}>
-                            <Item
-                                image={item.img}
-                                title={item.title}
-                                category={item.category}
-                                price={item.price}
-                                stock={item.stock}
-                                id={item.id}
-                                showCounter={false}
-                            />
-                    </div>
-                );
-            })
+                <Loader active content='Cargando productos...' />
+                
+                :  
+                
+                items.map(item => {
+                    return(
+                        <div key={item.id}>
+                                <Item
+                                    image={item.img}
+                                    title={item.title}
+                                    category={item.category}
+                                    price={item.price}
+                                    stock={item.stock}
+                                    id={item.id}
+                                    showCounter={false}
+                                />
+                        </div>
+                    );
+                })
 
-            }
+                }
 
+            </div>
         </div>
     )
 }

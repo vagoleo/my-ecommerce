@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../logo.svg';
+import logo from '../Assets/Logo_Stormy_1200x1200.png';
 import './NavBar.css'
 
 import { Link } from 'react-router-dom';

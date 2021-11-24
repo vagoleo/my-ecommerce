@@ -22,12 +22,12 @@ export const CartProvider = ({ children }) => {
         }
     }
 
-    const removeItem = (id) => {
-        let auxArr = items.filter(item => item.id !== id);
+    const removeItem = (ItemId) => {
+        let auxArr = items.filter(item => item.id !== ItemId);
         setItems(auxArr);
     }
 
-    const clearCart = () => setItems([])
+    const clearCart = () => {setItems([])}
 
     
 

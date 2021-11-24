@@ -10,7 +10,7 @@ const CategoriesList = () => {
             .then(res=>res.json())
             .then(json=>setCategories(json))*/
 
-        setCategories(['men', 'women'])
+        setCategories(['Men', 'Women'])
     }, []);
 
     return (
@@ -18,8 +18,8 @@ const CategoriesList = () => {
             {categories.map((ctg, idx) => {
                 return(
                     <li key={idx}>
-                        <Link to={`/category/${encodeURIComponent(ctg)}`}>
-                            {ctg}
+                        <Link to={`/category/${encodeURIComponent(ctg.toLocaleLowerCase())}`}>
+                            <h4>{ctg}</h4>
                         </Link>
                     </li>
                 )

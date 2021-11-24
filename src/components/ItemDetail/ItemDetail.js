@@ -10,17 +10,20 @@ import { CartContext } from '../../contexts/CartContext';
 
 const ItemDetail = ({item}) => {
     
-    const [itemsAdded, setItemsAdded] = useState();
+    //const [itemsAdded, setItemsAdded] = useState();
     const [didAdd, setDidAdd] = useState(false);
-
+ 
     const onAdd = (quantity) => {
-        setItemsAdded(quantity);
+        //setItemsAdded(quantity);
         setDidAdd(true);
+        addItem(item, parseInt(quantity))
+        alert(`Se ha agregado ${quantity} ${item.title} al carrito.`);
     }
 
-    const [items, setItems, addItem, removeItem, clearCart] = useContext(CartContext);
+    const [, , addItem, , ] = useContext(CartContext);
 
     return (
+        
         <div className='item-detail'>
             <div className='col col-left'>
                 <img src={item.img} alt={item.title} />
@@ -31,16 +34,13 @@ const ItemDetail = ({item}) => {
                 <h3>$ {item.price}</h3>
                 { didAdd ? 
                     <Link to='/cart'>
-                        <Button onClick={() => addItem(item, itemsAdded)}>Finalizar Compra</Button>
+                        <Button>Finalizar Compra</Button>
                     </Link>
                     :
-                    <ItemCount itemName={item.title} stock={item.stock} initial={0} onAdd={(quantity) => onAdd(quantity)} />
+                    <ItemCount itemName={item.title} stock={item.stock} initial={1} onAdd={(quantity) => onAdd(quantity)} />
                 }
                 
             </div>
-
-          
-            
         </div>
     )
 }

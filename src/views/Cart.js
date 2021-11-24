@@ -10,9 +10,7 @@ import { CartContext } from '../contexts/CartContext';
 
 const Cart = () => {
 
-    const [items, removeItem] = useContext(CartContext);
-
-    console.log(items)
+    const [items, , , removeItem, ] = useContext(CartContext);
 
      const getTotalPrice = () => {
         let total = 0;
@@ -27,13 +25,13 @@ const Cart = () => {
             <div className='items'>
             <Item.Group>
                 {
-                    items.length > 0 ? 
+                    Array.isArray(items) && items.length > 0 ? 
                     items.map((item, idx) => {
                         return(
                                 <Item  className='item-horizontal' key={idx}>
                                     <Item.Image size='tiny' src={item.img} />
 
-                                    <Item.Content>
+                                    <Item.Content> 
                                         <Item.Header>{item.title}</Item.Header>
                                         <Item.Meta>
                                         <span className='price'>$ {item.price}</span>
@@ -41,7 +39,7 @@ const Cart = () => {
                                         </Item.Meta>
                                         <Item.Description><strong>$ {parseFloat(item.price) * parseInt(item.quantity)}</strong></Item.Description>
                                         <br></br>
-                                        <Button icon onClick={() => removeItem(item.id)}> Eliminar <Icon name='trash' /> </Button>
+                                        <Button icon onClick={() => { removeItem(item.id) }}> Eliminar <Icon name='trash' /> </Button>
                                     </Item.Content>
                                 </Item>
                         )
@@ -50,9 +48,9 @@ const Cart = () => {
             </Item.Group>
             </div>
             
-            { items.length > 0 ?
+            { Array.isArray(items) && items.length > 0 ?
                 <div className='total-price'>
-                    Total: <strong>$ {getTotalPrice()}</strong>
+                    Total: <strong>$ {getTotalPrice()}</strong> <br></br><br></br>
                     <Link to='/checkout'>
                         <Button > Terminar Compra </Button>
                     </Link>

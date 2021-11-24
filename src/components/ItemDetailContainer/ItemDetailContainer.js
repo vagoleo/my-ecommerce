@@ -38,7 +38,7 @@ const ItemDetailContainer = ({match}) => {
         <>
             { isLoading ?
                 <Loader active />
-            :
+            :   
                 <ItemDetail item={item} />
             }
             
